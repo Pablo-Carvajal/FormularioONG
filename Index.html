@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario ONG</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Mi Tercer Formulario PHP con JQUERY" />
+    <title>Formulario</title>
+    <link rel="stylesheet" href="./style.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#validate-form").validate();
+
+        $("#limpiar").click(function() {
+            $("#pasaporte").hide();
+            $("#rut").hide();
+        });
+        
+        $("#rut").hide();
+        $("#pasaporte").hide();
+        
+        $("#mostrarRut").click(function() {
+            $("#pasaporte").hide();
+            $("#rut").show();
+        });
+        
+        $("#mostrarPasaporte").click(function() {
+            $("#pasaporte").show();
+            $("#rut").hide()
+        });
+
+        });
+    
+    
+    </script>
+
+</head>
+
+<body>
+
+    <form action="register.php" method="post" name="signup-form" id="validate-form">
+
+        <h1>Formulario</h1>
+        
+
+        <div class="form-element">
+            <label>Nombre completo:</label>
+            <input type="text" name="name" required/>
+        </div>
+
+        <div class="form-element">
+            <label>Email:</label>
+            <input type="email" name="email" required/>
+        </div>
+
+        <div>
+            <fieldset>
+                <legend>Identificación:</legend>
+                <label>
+                    <input type="radio" name="color" value="rut" id="mostrarRut" > Rut
+                </label>
+                <label>
+                    <input type="radio" name="color" value="pasaporte" id="mostrarPasaporte"> Pasaporte
+                </label>
+            </fieldset>  
+        </div>
+
+        <div class="form-element" id="rut">
+            <label for="rut" class="text form-label">Rut:</label>
+            <input type="number" class="form-control" name="rut" id="rut2" required>
+        </div>
+
+        <div class="form-element" id="pasaporte">
+            <label for="pasaporte" class="text form-label">Pasaporte:</label>
+            <input type="number" class="form-control" name="pasaporte" required>
+        </div>
+
+        <div class="form-element">
+            <label>Teléfono:</label>
+            <input type="number" name="telefono" />
+        </div>
+
+        <div class="form-element">
+            <label>Ciudad de residencia:</label>
+            <input type="text" name="residencia" required />
+        </div>
+
+        <div class="form-element">
+            <label>Comentarios:</label>
+            <textarea name="comentario" minlength="50" required></textarea>
+        </div>
+        
+        <div class="form-element">
+        <button type="submit" name="enviar" value="register">Enviar</button>
+        </div>
+
+        <div class="form-element" id="limpiar"> 
+        <button type="reset" >Limpiar</button>
+        </div>
+
+    </form>
+
+</body>
+
+</html>
